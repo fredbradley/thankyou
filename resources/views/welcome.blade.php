@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>{{ config('app.name') }}</title>
+
+        <!-- Fonts -->
+        <link href="//cdn.cranleigh.org/fonts/bentonsans/fontface.css" rel="stylesheet">
+        <link href="//cdn.cranleigh.org/css/AspW-Rg.css" rel="stylesheet">
+
+        <!-- Styles -->
+        <style>
+            html, body {
+                background-color: #0c223f;
+                color: #fff;
+                font-family: 'Benton Sans Lt', sans-serif;
+                font-weight: 200;
+                height: 100vh;
+                margin: 0;
+            }
+            h1,h2,h3,h4,h5,h6 {
+                font-family: 'AspW-Rg', sans-serif;
+                text-transform: uppercase;
+            }
+
+            .full-height {
+                height: 100vh;
+            }
+
+            .flex-center {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .position-ref {
+                position: relative;
+            }
+
+            .top-right {
+                position: absolute;
+                right: 10px;
+                top: 18px;
+            }
+            p>strong {
+                font-family: "Benton Sans Reg";
+            }
+
+            .content {
+                text-align: center;
+            }
+            .bloody-big {
+                font-size: 3.5em;
+            }
+            .pretty-big {
+                font-size: 1.5em;
+            }
+
+            .links > a {
+                color: #636b6f;
+                padding: 0 25px;
+                font-size: 13px;
+                font-weight: 600;
+                letter-spacing: .1rem;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
+
+            .m-b-md {
+                margin-bottom: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ route('login') }}">Login</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
+
+            <div class="content">
+                <h2 class="bloody-big">
+                    Say &quot;thanks&quot; more often...
+                </h2>
+                <p class="pretty-big">Saying thankyou to people is more than just nice or polite. <br />It's an important part of living in a community...</p>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/ag-Oyn8vIPE?start=19" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p><strong>What's all this about?</strong></p>
+                <p>We are creating a platform for you to say thank you to anyone in the company! <br />They'll get notified, you can share your thanks so others see. <br />Thank an individual or multiple people at once, even thank on behalf of others.</p>
+
+
+            </div>
+        </div>
+    </body>
+</html>
